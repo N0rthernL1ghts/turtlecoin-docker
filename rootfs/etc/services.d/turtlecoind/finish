@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if [[ $? -ne 0 ]]
+then
+  s6-svscanctl -t /var/run/s6/services
+fi
+
+exit 0
