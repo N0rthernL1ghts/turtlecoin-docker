@@ -22,5 +22,8 @@ RUN gunzip -c /tmp/s6-overlay-rel.tar.gz | tar -xf - -C / \
 # Make sure to create at least remporary volume for TurtleCoin
 VOLUME ["/root/.TurtleCoin"]
 
+# Expose
+EXPOSE 11897
+
 # s6-overlay entrypoint
 ENTRYPOINT ["/init"]
