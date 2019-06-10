@@ -9,7 +9,7 @@ ENV TRTL_PATH=${TRTL_PATH}
 ARG S6_OVERLAY_RELEASE=https://github.com/just-containers/s6-overlay/releases/latest/download/s6-overlay-amd64.tar.gz
 
 # Download s6-overlay and TurtleCoin releases
-ADD ${S6_OVERLAY_RELEASE} /tmp/s6-overlay_rel.tar.gz
+ADD ${S6_OVERLAY_RELEASE} /tmp/s6-overlay-rel.tar.gz
 ADD ${TRTL_RELEASE} /tmp/turtlecoin-rel.tar.gz
 ADD rootfs /
 
