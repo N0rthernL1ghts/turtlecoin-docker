@@ -40,7 +40,6 @@ docker run \
 
 ## Available environment variables
 ```
-BIND_IP = 0.0.0.0
 WALLET_ADDRESS = TRTLv3Y2Kt5dC7S4Rmtt8X6Z3nGyvPUCWJy84jtHYwvk395mEVV6JKqDG2Zvp2KXusNVzTpEzeNn6B9WtbMPN2mJ5hgwTLj5mBV
 FEE_AMOUNT = 50000
 ```

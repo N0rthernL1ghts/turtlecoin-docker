@@ -10,6 +10,6 @@ echo "Fee: ${FEE_AMOUNT} shells"
 echo "Wallet address: ${WALLET_ADDRESS}"
 
 exec "${TRTL_PATH}/TurtleCoind" \
-  --rpc-bind-ip "${BIND_IP}" \
+  --rpc-bind-ip "0.0.0.0" \
   --fee-amount "${FEE_AMOUNT}" \
   --fee-address "${WALLET_ADDRESS}"

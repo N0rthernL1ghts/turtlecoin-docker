@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 
-BIND_IP="${BIND_IP:-0.0.0.0}"
 WALLET_ADDRESS="${WALLET_ADDRESS:-}"
 FEE_AMOUNT="${NODE_FEE:-0}"
