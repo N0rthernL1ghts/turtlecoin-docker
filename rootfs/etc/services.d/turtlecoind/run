@@ -12,5 +12,6 @@ s6-setuidgid "${TRTL_USER}" "${TRTL_PATH}/TurtleCoind" \
   --data-dir "${TRTL_HOME}/blockchain" \
   --db-threads 5 \
   --log-file "${TRTL_HOME}/TurtleCoind.log" \
+  --load-checkpoints "${TRTL_HOME}/checkpoints.csv" \
   --fee-amount "${FEE_AMOUNT}" \
   --fee-address "${WALLET_ADDRESS}"
