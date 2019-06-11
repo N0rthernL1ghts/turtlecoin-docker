@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-WALLET_ADDRESS="${WALLET_ADDRESS:-}"
-FEE_AMOUNT="${NODE_FEE:-0}"
