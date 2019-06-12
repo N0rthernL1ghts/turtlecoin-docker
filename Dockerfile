@@ -39,7 +39,7 @@ WORKDIR "${TRTL_HOME}"
 VOLUME ["${TRTL_HOME}"]
 
 # Expose
-EXPOSE 11897
+EXPOSE 11898:11898
 
 # s6-overlay entrypoint
 ENTRYPOINT ["/init"]
