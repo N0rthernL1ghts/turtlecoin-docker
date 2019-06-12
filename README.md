@@ -21,7 +21,7 @@ If you want to run free node:
 docker run \
  --name turtlecoin_free_node \
  -v turtlecoin_data:/home/turtle \
- -p 11897:11897 \
+ -p 11898:11898 \
  --restart unless-stopped \
  nlss/turtlecoin-docker
 ```
@@ -32,7 +32,7 @@ docker run \
 --name turtlecoin_premium_node \
  -e WALLET_ADDRESS=TRTLv3Y2Kt5dC7S4Rmtt8X6Z3nGyvPUCWJy84jtHYwvk395mEVV6JKqDG2Zvp2KXusNVzTpEzeNn6B9WtbMPN2mJ5hgwTLj5mBV \
  -e NODE_FEE=50000 \
- -p 11897:11897 \
+ -p 11898:11898 \
  -v turtlecoin_data:/home/turtle \
  --restart unless-stopped \
  nlss/turtlecoin-docker
