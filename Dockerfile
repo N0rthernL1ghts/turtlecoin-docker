@@ -31,7 +31,8 @@ RUN apt update \
     && apt install curl --yes \
     && adduser --shell /bin/false --disabled-password --gecos "TurtleCoin User" --home "${TRTL_HOME}" "${TRTL_USER}" \
     && gunzip -c /tmp/s6-overlay-rel.tar.gz | tar -xf - -C / \
-    && mkdir -p ${TRTL_PATH} \
+    && mkdir -p "${TRTL_PATH}" \
+    && mkdir -p "${TRTL_HOME}" \
     && tar -zxf /tmp/turtlecoin-rel.tar.gz --strip-components=1 -C ${TRTL_PATH} \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \

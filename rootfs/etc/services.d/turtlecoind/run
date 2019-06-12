@@ -1,31 +1,10 @@
 #!/usr/bin/with-contenv bash
 
-WALLET_ADDRESS="${WALLET_ADDRESS:-}"
-FEE_AMOUNT="${NODE_FEE:-0}"
-CHECKPOINTS_FILE="${TRTL_HOME}/checkpoints.csv"
-
-if [ ! -f "${CHECKPOINTS_FILE}" ]; then
-    echo "Checkpoints not found. Downloading..."
-
-    curl -o "/tmp/trtl-checkpoints.csv" "${TRTL_CHECKPOINTS}"
-    curl -o "/tmp/trtl-1m-checkpoints.csv" "${TRTL_CHECKPOINTS_1M}"
-
-    # Combine into one file
-    cat "/tmp/trtl-checkpoints.csv" "/tmp/trtl-1m-checkpoints.csv" > "${CHECKPOINTS_FILE}"
-
-    # Clean cache
-    rm "/tmp/*checkpoints.csv" -rf
-fi
-
-echo "### TurtleCoin Node ###"
-echo "Fee: ${FEE_AMOUNT} shells"
-echo "Wallet address: ${WALLET_ADDRESS}"
-
 s6-setuidgid "${TRTL_USER}" "${TRTL_PATH}/TurtleCoind" \
   --rpc-bind-ip "0.0.0.0" \
   --data-dir "${TRTL_HOME}/blockchain" \
   --db-threads 5 \
   --log-file "${TRTL_HOME}/TurtleCoind.log" \
   --load-checkpoints "${TRTL_HOME}/checkpoints.csv" \
-  --fee-amount "${FEE_AMOUNT}" \
-  --fee-address "${WALLET_ADDRESS}"
+  --fee-amount "${NODE_FEE:-0}" \
+  --fee-address "${WALLET_ADDRESS:-}"
