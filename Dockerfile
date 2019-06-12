@@ -38,6 +38,7 @@ RUN apt update \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && rm /tmp/*-rel.tar.gz -rf
 
+WORKDIR "${TRTL_HOME}"
 
 # Make sure to create at least remporary volume for TurtleCoin
 VOLUME ["${TRTL_HOME}"]
