@@ -57,7 +57,6 @@ Please remember that you SHOULD assign this to your own volume as docker assigne
 ## TODO
 - Compatibility with brandonlehmann/turtlecoin-api-proxy
 - Possibility to run in cluster
-- Use Alpine as a base image
 
 ## Contributing
 Fork -> Patch -> Push -> Pull Request
@@ -76,6 +75,9 @@ Donate BTC:
 
 Donate ETH:
 > 0x6585A9F01A2adb499C4ec46757b4B19Ff7De37b6
+
+## Special thanks to
+- [@andrewnk](https://github.com/andrewnk) - his [turtlecoin Alpine build](https://github.com/andrewnk/turtlecoin-docker/tree/master/dockerfiles/base) is in use
 
 ## Disclaimer
 Please see [License File](LICENSE) for more information.
