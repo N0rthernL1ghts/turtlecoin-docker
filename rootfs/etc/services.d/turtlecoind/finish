@@ -1,8 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/execlineb -S1
+if { s6-test ${1} -ne 0 }
+if { s6-test ${1} -ne 256 }
 
-if [[ $? -ne 0 ]]
-then
-  s6-svscanctl -t /var/run/s6/services
-fi
-
-exit 0
+s6-svscanctl -t /var/run/s6/services
