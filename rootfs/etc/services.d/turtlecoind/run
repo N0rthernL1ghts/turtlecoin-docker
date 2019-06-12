@@ -2,6 +2,20 @@
 
 WALLET_ADDRESS="${WALLET_ADDRESS:-}"
 FEE_AMOUNT="${NODE_FEE:-0}"
+CHECKPOINTS_FILE="${TRTL_HOME}/checkpoints.csv"
+
+if [ ! -f "${CHECKPOINTS_FILE}" ]; then
+    echo "Checkpoints not found. Downloading..."
+
+    curl -o "/tmp/trtl-checkpoints.csv" "${TRTL_CHECKPOINTS}"
+    curl -o "/tmp/trtl-1m-checkpoints.csv" "${TRTL_CHECKPOINTS_1M}"
+
+    # Combine into one file
+    cat "/tmp/trtl-checkpoints.csv" "/tmp/trtl-1m-checkpoints.csv" > "${CHECKPOINTS_FILE}"
+
+    # Clean cache
+    rm "/tmp/*checkpoints.csv" -rf
+fi
 
 echo "### TurtleCoin Node ###"
 echo "Fee: ${FEE_AMOUNT} shells"

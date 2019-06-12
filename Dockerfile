@@ -17,22 +17,24 @@ ARG TRTL_HOME="/home/${TRTL_USER}"
 ENV TRTL_HOME=${TRTL_HOME}
 ARG TRTL_CHECKPOINTS=https://raw.githubusercontent.com/turtlecoin/checkpoints/master/checkpoints.csv
 ARG TRTL_CHECKPOINTS_1M=https://raw.githubusercontent.com/turtlecoin/checkpoints/master/checkpoints-1M.csv
+ENV TRTL_CHECKPOINTS=${TRTL_CHECKPOINTS}
+ENV TRTL_CHECKPOINTS_1M=${TRTL_CHECKPOINTS_1M}
 ARG S6_OVERLAY_RELEASE=https://github.com/just-containers/s6-overlay/releases/latest/download/s6-overlay-amd64.tar.gz
 
 # Download s6-overlay and TurtleCoin releases
 ADD ${S6_OVERLAY_RELEASE} /tmp/s6-overlay-rel.tar.gz
 ADD ${TRTL_RELEASE} /tmp/turtlecoin-rel.tar.gz
-ADD ${TRTL_CHECKPOINTS} /tmp/trtl-checkpoints.csv
-ADD ${TRTL_CHECKPOINTS_1M} /tmp/trtl-1m-checkpoints.csv
 ADD rootfs /
 
 # Unpack downloaded archives and make sure that TRTL_PATH exists
-RUN adduser --shell /bin/false --disabled-password --gecos "TurtleCoin User" --home "${TRTL_HOME}" "${TRTL_USER}" \
+RUN apt update \
+    && apt install curl --yes \
+    && adduser --shell /bin/false --disabled-password --gecos "TurtleCoin User" --home "${TRTL_HOME}" "${TRTL_USER}" \
     && gunzip -c /tmp/s6-overlay-rel.tar.gz | tar -xf - -C / \
     && mkdir -p ${TRTL_PATH} \
     && tar -zxf /tmp/turtlecoin-rel.tar.gz --strip-components=1 -C ${TRTL_PATH} \
-    && cat /tmp/trtl-checkpoints.csv /tmp/trtl-1m-checkpoints.csv > "${TRTL_HOME}/checkpoints.csv" \
-    && rm /tmp/*checkpoints.csv -rf \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && rm /tmp/*-rel.tar.gz -rf
 
 
