@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+response=$(curl --fail -sb -H "Accept: application/json" "http://localhost:11898/getinfo")
+
+echo "$response" | grep -io '"status":"ok"'
