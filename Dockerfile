@@ -35,6 +35,9 @@ RUN apk add --update --no-cache curl bash libucontext-dev \
 
 WORKDIR "${TRTL_HOME}"
 
+# Healthcheck to make sure turtlecoind service is running and healthy11
+HEALTHCHECK --interval=3s --timeout=1s --start-period=30s --retries=3 CMD healthcheck
+
 # Make sure to create at least remporary volume for TurtleCoin
 VOLUME ["${TRTL_HOME}"]
 
