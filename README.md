@@ -1,3 +1,6 @@
+# Archived
+This project is now deprecated due to lack of interest in Turtlecoin
+
 # TutleCoin Node (Docker) 
 ![Turtle](https://cdn.elite7hackers.net/serve/imgx/images/2019/06/11/download-Turtle-PNG-transparent-images-transparent-backgrounds-PNGRIVER-COM-10680-turtlee4ef80440abedca1.png)
 ![Plus](https://cdn.elite7hackers.net/serve/imgx/images/2019/06/11/plus7dd106792bdd1aad.png)
